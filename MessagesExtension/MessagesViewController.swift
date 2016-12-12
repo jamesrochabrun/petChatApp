@@ -14,6 +14,7 @@ class MessagesViewController: MSMessagesAppViewController {
     var dogView: UIImageView!
     var catView: UIImageView!
     var cancelButton: UIButton!
+    var nextButton: UIButton!
     
     var screenWidth: CGFloat = 0.0
     var imageviewSize: CGFloat = 0.0
@@ -41,20 +42,32 @@ class MessagesViewController: MSMessagesAppViewController {
         self.view.addSubview(dogView)
         let dogRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.selectDogOntap))
         dogView.addGestureRecognizer(dogRecognizer)
+        dogView.layer.cornerRadius = imageviewSize/2
+
         
         catView = UIImageView()
         catView.clipsToBounds = true
         catView.isUserInteractionEnabled = true
         catView.contentMode = .scaleAspectFit
         catView.image = UIImage.init(named: "kitty")
+        catView.layer.cornerRadius = imageviewSize/2
         self.view.addSubview(catView)
         let catRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.selectCatOntap))
         catView.addGestureRecognizer(catRecognizer)
         
         cancelButton = UIButton()
         cancelButton.setTitle("cancel", for: .normal)
-        cancelButton.addTarget(self, action: #selector(test), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(cancelSelection(_:)), for: .touchUpInside)
+        cancelButton.alpha = 0
+        cancelButton.setTitleColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), for: .normal)
         self.view.addSubview(cancelButton)
+        
+        nextButton = UIButton()
+        nextButton.setTitle("next", for: .normal)
+        nextButton.addTarget(self, action: #selector(cancelSelection(_:)), for: .touchUpInside)
+        nextButton.alpha = 0
+        nextButton.setTitleColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), for: .normal)
+        self.view.addSubview(nextButton)
 
     }
     
@@ -67,7 +80,6 @@ class MessagesViewController: MSMessagesAppViewController {
         frame.origin.x = innerSpace
         frame.origin.y = (self.view.frame.size.height - frame.size.height)/2
         dogView.frame = frame
-        dogView.layer.cornerRadius = frame.size.height/2
         
         frame = catView.frame
         frame.size.height = imageviewSize
@@ -75,7 +87,6 @@ class MessagesViewController: MSMessagesAppViewController {
         frame.origin.x = dogView.frame.maxX + innerSpace
         frame.origin.y = (self.view.frame.size.height - frame.size.height)/2
         catView.frame = frame
-        catView.layer.cornerRadius = frame.size.height/2
         
         frame = cancelButton.frame
         frame.size.height = 40
@@ -83,6 +94,19 @@ class MessagesViewController: MSMessagesAppViewController {
         frame.origin.x = (self.view.frame.size.width - frame.size.width)/2
         frame.origin.y = dogView.frame.maxX
         cancelButton.frame = frame
+        
+        cancelButton.sizeToFit()
+        frame = cancelButton.frame
+        frame.origin.x = 40
+        frame.origin.y = (self.view.frame.size.height - cancelButton.frame.size.height)/2
+        cancelButton.frame = frame
+        
+        nextButton.sizeToFit()
+        frame = nextButton.frame
+        frame.origin.x = self.view.bounds.size.width - nextButton.frame.size.width - 40
+        frame.origin.y = (self.view.frame.size.height - cancelButton.frame.size.height)/2
+        nextButton.frame = frame
+ 
     }
 
     
@@ -96,7 +120,7 @@ class MessagesViewController: MSMessagesAppViewController {
         let deltaX = (self.dogView.frame.size.width - self.innerSpace)/2
         let translationX =  self.dogView.frame.size.width - deltaX
         
-        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations:{
+        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations:{ [unowned self] in
             
             let scale = CGAffineTransform(scaleX: 1.5, y: 1.5)
             var translate = CGAffineTransform(translationX: translationX, y: 0.0)
@@ -107,6 +131,9 @@ class MessagesViewController: MSMessagesAppViewController {
             translate = CGAffineTransform(translationX: -translationX, y: 0.0)
             self.catView.transform = translate
             
+            self.cancelButton.alpha = 1
+            self.nextButton.alpha = 1
+            
         }, completion: nil)
     }
     
@@ -116,26 +143,30 @@ class MessagesViewController: MSMessagesAppViewController {
         let deltaX = (self.catView.frame.size.width - self.innerSpace)/2
         let translationX =  self.catView.frame.size.width - deltaX
         
-        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations:{
+        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations:{ [weak self] in
             
             let scale = CGAffineTransform(scaleX: 1.5, y: 1.5)
             var translate = CGAffineTransform(translationX: -translationX, y: 0.0)
-            self.catView.transform = scale.concatenating(translate)
-            self.catView.isUserInteractionEnabled = false
+            self?.catView.transform = scale.concatenating(translate)
+            self?.catView.isUserInteractionEnabled = false
             
-            self.dogView.alpha = 0
+            self?.dogView.alpha = 0
             translate = CGAffineTransform(translationX: translationX, y: 0.0)
-            self.dogView.transform = translate
+            self?.dogView.transform = translate
+            
+            self?.cancelButton.alpha = 1
+            self?.nextButton.alpha = 1
             
         }, completion: nil)
+        
     }
     
-    func test(_ sender:UIButton) {
+    func cancelSelection(_ sender:UIButton) {
         
         let scale = CGAffineTransform.identity
         let translate = CGAffineTransform(translationX: 0.0, y: 0.0)
         
-        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations:{
+        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations:{ [unowned self] in
             
             self.catView.transform = scale.concatenating(translate)
             self.dogView.transform = scale.concatenating(translate)
@@ -143,6 +174,8 @@ class MessagesViewController: MSMessagesAppViewController {
             self.catView.alpha = 1
             self.dogView.isUserInteractionEnabled = true
             self.catView.isUserInteractionEnabled = true
+            self.cancelButton.alpha = 0
+            self.nextButton.alpha = 0
         }, completion: nil)
 
     }
