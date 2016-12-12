@@ -9,7 +9,7 @@
 import UIKit
 import Messages
 
-class MessagesViewController: MSMessagesAppViewController {
+class PetVC: MSMessagesAppViewController {
     
 //    var dogView: UIImageView!
 //    var catView: UIImageView!
@@ -27,6 +27,7 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var catView: UIImageView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
 
         
     override func viewDidLoad() {
@@ -70,7 +71,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         //nextButton = UIButton()
         nextButton.setTitle("next", for: .normal)
-        nextButton.addTarget(self, action: #selector(cancelSelection(_:)), for: .touchUpInside)
+       // nextButton.addTarget(self, action: #selector(cancelSelection(_:)), for: .touchUpInside)
         nextButton.alpha = 0
         nextButton.setTitleColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), for: .normal)
         //self.view.addSubview(nextButton)
@@ -140,6 +141,7 @@ class MessagesViewController: MSMessagesAppViewController {
             
             self.cancelButton.alpha = 1
             self.nextButton.alpha = 1
+            self.titleLabel.alpha = 0
             
         }, completion: nil)
     }
@@ -164,6 +166,8 @@ class MessagesViewController: MSMessagesAppViewController {
             self?.cancelButton.alpha = 1
             self?.nextButton.alpha = 1
             
+            self?.titleLabel.alpha = 0
+            
         }, completion: nil)
         
     }
@@ -183,6 +187,7 @@ class MessagesViewController: MSMessagesAppViewController {
             self.catView.isUserInteractionEnabled = true
             self.cancelButton.alpha = 0
             self.nextButton.alpha = 0
+            self.titleLabel.alpha = 1
         }, completion: nil)
     }
 

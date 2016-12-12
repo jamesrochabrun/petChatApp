@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BA28FCF1DFF447200772917 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA28FCE1DFF447200772917 /* GridLayout.swift */; };
+		7BCF71AB1DFF2D6800D11CE1 /* GridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF71AA1DFF2D6800D11CE1 /* GridVC.swift */; };
 		7BDBE7FB1DFE6186000D39AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBE7FA1DFE6186000D39AF /* Assets.xcassets */; };
 		7BDBE8021DFE6187000D39AF /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7BDBE8011DFE6187000D39AF /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7BDBE8071DFE6187000D39AF /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDBE8061DFE6187000D39AF /* Messages.framework */; };
-		7BDBE80A1DFE6187000D39AF /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBE8091DFE6187000D39AF /* MessagesViewController.swift */; };
+		7BDBE80A1DFE6187000D39AF /* PetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBE8091DFE6187000D39AF /* PetVC.swift */; };
 		7BDBE80D1DFE6187000D39AF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBE80B1DFE6187000D39AF /* MainInterface.storyboard */; };
 		7BDBE80F1DFE6187000D39AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBE80E1DFE6187000D39AF /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -40,12 +42,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7BA28FCE1DFF447200772917 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		7BCF71AA1DFF2D6800D11CE1 /* GridVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridVC.swift; sourceTree = "<group>"; };
 		7BDBE7F71DFE6186000D39AF /* PetMessageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMessageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDBE7FA1DFE6186000D39AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BDBE7FC1DFE6186000D39AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BDBE8011DFE6187000D39AF /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDBE8061DFE6187000D39AF /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		7BDBE8091DFE6187000D39AF /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		7BDBE8091DFE6187000D39AF /* PetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetVC.swift; sourceTree = "<group>"; };
 		7BDBE80C1DFE6187000D39AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7BDBE80E1DFE6187000D39AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BDBE8101DFE6187000D39AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +106,9 @@
 		7BDBE8081DFE6187000D39AF /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				7BDBE8091DFE6187000D39AF /* MessagesViewController.swift */,
+				7BDBE8091DFE6187000D39AF /* PetVC.swift */,
+				7BCF71AA1DFF2D6800D11CE1 /* GridVC.swift */,
+				7BA28FCE1DFF447200772917 /* GridLayout.swift */,
 				7BDBE80B1DFE6187000D39AF /* MainInterface.storyboard */,
 				7BDBE80E1DFE6187000D39AF /* Assets.xcassets */,
 				7BDBE8101DFE6187000D39AF /* Info.plist */,
@@ -213,7 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BDBE80A1DFE6187000D39AF /* MessagesViewController.swift in Sources */,
+				7BA28FCF1DFF447200772917 /* GridLayout.swift in Sources */,
+				7BCF71AB1DFF2D6800D11CE1 /* GridVC.swift in Sources */,
+				7BDBE80A1DFE6187000D39AF /* PetVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +413,7 @@
 				7BDBE8151DFE6187000D39AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BDBE8171DFE6187000D39AF /* Build configuration list for PBXNativeTarget "PetMessageApp" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +422,7 @@
 				7BDBE8191DFE6187000D39AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
