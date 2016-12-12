@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7BA28FCF1DFF447200772917 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA28FCE1DFF447200772917 /* GridLayout.swift */; };
+		7BA28FD11DFF62CD00772917 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA28FD01DFF62CD00772917 /* ImageCell.swift */; };
 		7BCF71AB1DFF2D6800D11CE1 /* GridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF71AA1DFF2D6800D11CE1 /* GridVC.swift */; };
 		7BDBE7FB1DFE6186000D39AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBE7FA1DFE6186000D39AF /* Assets.xcassets */; };
 		7BDBE8021DFE6187000D39AF /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7BDBE8011DFE6187000D39AF /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		7BA28FCE1DFF447200772917 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		7BA28FD01DFF62CD00772917 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		7BCF71AA1DFF2D6800D11CE1 /* GridVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridVC.swift; sourceTree = "<group>"; };
 		7BDBE7F71DFE6186000D39AF /* PetMessageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMessageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDBE7FA1DFE6186000D39AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				7BCF71AA1DFF2D6800D11CE1 /* GridVC.swift */,
 				7BA28FCE1DFF447200772917 /* GridLayout.swift */,
 				7BDBE80B1DFE6187000D39AF /* MainInterface.storyboard */,
+				7BA28FD01DFF62CD00772917 /* ImageCell.swift */,
 				7BDBE80E1DFE6187000D39AF /* Assets.xcassets */,
 				7BDBE8101DFE6187000D39AF /* Info.plist */,
 			);
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA28FCF1DFF447200772917 /* GridLayout.swift in Sources */,
+				7BA28FD11DFF62CD00772917 /* ImageCell.swift in Sources */,
 				7BCF71AB1DFF2D6800D11CE1 /* GridVC.swift in Sources */,
 				7BDBE80A1DFE6187000D39AF /* PetVC.swift in Sources */,
 			);

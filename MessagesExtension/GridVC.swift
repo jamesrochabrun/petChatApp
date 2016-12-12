@@ -24,7 +24,7 @@ class GridVC: MSMessagesAppViewController, UICollectionViewDataSource, UICollect
         gridCollectionView.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         gridCollectionView.showsVerticalScrollIndicator = false
         gridCollectionView.showsHorizontalScrollIndicator = false
-        self.gridCollectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        self.gridCollectionView!.register(ImageCell.self, forCellWithReuseIdentifier: "cell")
         self.view.addSubview(gridCollectionView)
         
         // Do any additional setup after loading the view.
@@ -37,7 +37,7 @@ class GridVC: MSMessagesAppViewController, UICollectionViewDataSource, UICollect
         frame.size.height = self.view.frame.size.height
         frame.size.width = self.view.frame.size.width
         frame.origin.x = 0
-        frame.origin.y = 0
+        frame.origin.y = self.view.frame.minY
         gridCollectionView.frame = frame
     }
 
@@ -48,7 +48,7 @@ class GridVC: MSMessagesAppViewController, UICollectionViewDataSource, UICollect
     
     //MARK: COLLECTIONVIEW
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 50
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -56,8 +56,9 @@ class GridVC: MSMessagesAppViewController, UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCell
         cell.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.6392156863, blue: 0.7843137255, alpha: 1)
+        cell.imageView.image = UIImage.init(named: "puppy")
         return cell
     }
     

@@ -39,7 +39,7 @@ class PetVC: MSMessagesAppViewController {
         //numberOfViews = 2.0
         //numberOfInnerSpaces = 3.0
         //remainingWidth = screenWidth - imageviewSize * numberOfViews
-        innerSpace = 20//remainingWidth/numberOfInnerSpaces
+        innerSpace = (self.catView.frame.minX - self.dogView.frame.minX) - imageviewSize
         
         //dogView = UIImageView()
         dogView.clipsToBounds = true
