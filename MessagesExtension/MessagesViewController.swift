@@ -11,10 +11,10 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    var dogView: UIImageView!
-    var catView: UIImageView!
-    var cancelButton: UIButton!
-    var nextButton: UIButton!
+//    var dogView: UIImageView!
+//    var catView: UIImageView!
+//    var cancelButton: UIButton!
+//    var nextButton: UIButton!
     
     var screenWidth: CGFloat = 0.0
     var imageviewSize: CGFloat = 0.0
@@ -23,91 +23,97 @@ class MessagesViewController: MSMessagesAppViewController {
     var remainingWidth: CGFloat = 0.0
     var innerSpace: CGFloat = 0.0
     
+    @IBOutlet weak var dogView: UIImageView!
+    @IBOutlet weak var catView: UIImageView!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        screenWidth = self.view.bounds.size.width
-        imageviewSize = screenWidth/4.0
-        numberOfViews = 2.0
-        numberOfInnerSpaces = 3.0
-        remainingWidth = screenWidth - imageviewSize * numberOfViews
-        innerSpace = remainingWidth/numberOfInnerSpaces
+       // screenWidth = self.view.bounds.size.width
+        imageviewSize = 90
+        //numberOfViews = 2.0
+        //numberOfInnerSpaces = 3.0
+        //remainingWidth = screenWidth - imageviewSize * numberOfViews
+        innerSpace = 20//remainingWidth/numberOfInnerSpaces
         
-        dogView = UIImageView()
+        //dogView = UIImageView()
         dogView.clipsToBounds = true
         dogView.isUserInteractionEnabled = true
         dogView.contentMode = .scaleAspectFit
         dogView.image = UIImage.init(named: "puppy")
-        self.view.addSubview(dogView)
+       // self.view.addSubview(dogView)
         let dogRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.selectDogOntap))
         dogView.addGestureRecognizer(dogRecognizer)
         dogView.layer.cornerRadius = imageviewSize/2
 
         
-        catView = UIImageView()
+        //catView = UIImageView()
         catView.clipsToBounds = true
         catView.isUserInteractionEnabled = true
         catView.contentMode = .scaleAspectFit
         catView.image = UIImage.init(named: "kitty")
         catView.layer.cornerRadius = imageviewSize/2
-        self.view.addSubview(catView)
+      //  self.view.addSubview(catView)
         let catRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.selectCatOntap))
         catView.addGestureRecognizer(catRecognizer)
         
-        cancelButton = UIButton()
+        //cancelButton = UIButton()
         cancelButton.setTitle("cancel", for: .normal)
         cancelButton.addTarget(self, action: #selector(cancelSelection(_:)), for: .touchUpInside)
         cancelButton.alpha = 0
         cancelButton.setTitleColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), for: .normal)
-        self.view.addSubview(cancelButton)
+        //self.view.addSubview(cancelButton)
         
-        nextButton = UIButton()
+        //nextButton = UIButton()
         nextButton.setTitle("next", for: .normal)
         nextButton.addTarget(self, action: #selector(cancelSelection(_:)), for: .touchUpInside)
         nextButton.alpha = 0
         nextButton.setTitleColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), for: .normal)
-        self.view.addSubview(nextButton)
+        //self.view.addSubview(nextButton)
 
     }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        var frame = dogView.frame
-        frame.size.height = imageviewSize
-        frame.size.width = imageviewSize
-        frame.origin.x = innerSpace
-        frame.origin.y = (self.view.frame.size.height - frame.size.height)/2
-        dogView.frame = frame
-        
-        frame = catView.frame
-        frame.size.height = imageviewSize
-        frame.size.width = imageviewSize
-        frame.origin.x = dogView.frame.maxX + innerSpace
-        frame.origin.y = (self.view.frame.size.height - frame.size.height)/2
-        catView.frame = frame
-        
-        frame = cancelButton.frame
-        frame.size.height = 40
-        frame.size.width = 200
-        frame.origin.x = (self.view.frame.size.width - frame.size.width)/2
-        frame.origin.y = dogView.frame.maxX
-        cancelButton.frame = frame
-        
-        cancelButton.sizeToFit()
-        frame = cancelButton.frame
-        frame.origin.x = 40
-        frame.origin.y = (self.view.frame.size.height - cancelButton.frame.size.height)/2
-        cancelButton.frame = frame
-        
-        nextButton.sizeToFit()
-        frame = nextButton.frame
-        frame.origin.x = self.view.bounds.size.width - nextButton.frame.size.width - 40
-        frame.origin.y = (self.view.frame.size.height - cancelButton.frame.size.height)/2
-        nextButton.frame = frame
- 
-    }
+//    
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        
+//        var frame = dogView.frame
+//        frame.size.height = imageviewSize
+//        frame.size.width = imageviewSize
+//        frame.origin.x = innerSpace
+//        frame.origin.y = (self.view.frame.size.height - frame.size.height)/2
+//        dogView.frame = frame
+//        
+//        frame = catView.frame
+//        frame.size.height = imageviewSize
+//        frame.size.width = imageviewSize
+//        frame.origin.x = dogView.frame.maxX + innerSpace
+//        frame.origin.y = (self.view.frame.size.height - frame.size.height)/2
+//        catView.frame = frame
+//        
+//        frame = cancelButton.frame
+//        frame.size.height = 40
+//        frame.size.width = 200
+//        frame.origin.x = (self.view.frame.size.width - frame.size.width)/2
+//        frame.origin.y = dogView.frame.maxX
+//        cancelButton.frame = frame
+//        
+//        cancelButton.sizeToFit()
+//        frame = cancelButton.frame
+//        frame.origin.x = 40
+//        frame.origin.y = (self.view.frame.size.height - cancelButton.frame.size.height)/2
+//        cancelButton.frame = frame
+//        
+//        nextButton.sizeToFit()
+//        frame = nextButton.frame
+//        frame.origin.x = self.view.bounds.size.width - nextButton.frame.size.width - 40
+//        frame.origin.y = (self.view.frame.size.height - cancelButton.frame.size.height)/2
+//        nextButton.frame = frame
+// 
+//    }
 
     
     override func didReceiveMemoryWarning() {
@@ -116,6 +122,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     func selectDogOntap(_ sender: UIGestureRecognizer) {
+        
         
         let deltaX = (self.dogView.frame.size.width - self.innerSpace)/2
         let translationX =  self.dogView.frame.size.width - deltaX
@@ -177,7 +184,6 @@ class MessagesViewController: MSMessagesAppViewController {
             self.cancelButton.alpha = 0
             self.nextButton.alpha = 0
         }, completion: nil)
-
     }
 
     

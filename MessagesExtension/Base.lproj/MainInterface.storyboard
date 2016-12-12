@@ -20,14 +20,65 @@
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gic-fv-stC">
+                                <rect key="frame" x="60" y="219" width="200" height="90"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="RHg-A1-aXp">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitty" translatesAutoresizingMaskIntoConstraints="NO" id="4AM-P7-1Fd">
+                                        <rect key="frame" x="110" y="0.0" width="90" height="90"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Ztp-Ya-5wM"/>
+                                    <constraint firstAttribute="width" constant="200" id="tGb-sR-9bb"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1L1-ZE-aTE">
+                                <rect key="frame" x="8" y="249" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="F2t-yy-14r"/>
+                                    <constraint firstAttribute="height" constant="30" id="aJv-ip-g29"/>
+                                </constraints>
+                                <state key="normal" title="Cancel"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fV-5B-iYW">
+                                <rect key="frame" x="262" y="249" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="nUN-lu-bQL"/>
+                                    <constraint firstAttribute="height" constant="30" id="zWk-uM-5Iq"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Gic-fv-stC" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="5DJ-Dk-3EX"/>
+                            <constraint firstItem="RHg-A1-aXp" firstAttribute="leading" secondItem="1L1-ZE-aTE" secondAttribute="trailing" constant="2" id="D2r-SM-fxU"/>
+                            <constraint firstItem="4fV-5B-iYW" firstAttribute="leading" secondItem="4AM-P7-1Fd" secondAttribute="trailing" constant="2" id="VB3-dh-xgH"/>
+                            <constraint firstItem="1L1-ZE-aTE" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="cOH-m7-DaR"/>
+                            <constraint firstItem="Gic-fv-stC" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="kRs-G5-b9f"/>
+                            <constraint firstItem="4fV-5B-iYW" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="wtP-lJ-5XI"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="1L1-ZE-aTE" id="QLX-Xo-Pem"/>
+                        <outlet property="catView" destination="4AM-P7-1Fd" id="ggb-C4-rh5"/>
+                        <outlet property="dogView" destination="RHg-A1-aXp" id="2qI-mn-97N"/>
+                        <outlet property="nextButton" destination="4fV-5B-iYW" id="7dV-te-CxW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="33.600000000000001" y="37.781109445277366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="kitty" width="16" height="16"/>
+        <image name="puppy" width="16" height="16"/>
+    </resources>
 </document>
